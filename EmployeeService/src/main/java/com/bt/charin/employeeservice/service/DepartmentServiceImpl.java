@@ -11,16 +11,10 @@ public class DepartmentServiceImpl implements DepartmentService {
 
 	@Autowired
 	private DepartmentDAO dao;
-	
+
 	@Override
-	public String updateDepartment(DepartmentModel departmentModel) {
-		dao.save(departmentModel);
-		return "\nUpdated Department Table";
-	}
-	
-	public int getDepartmentID(String depName) {
-		//dao.get
-		return 1;
+	public DepartmentModel findByDeptName(String deptName) {
+		return dao.findByDeptName(deptName);
 	}
 
 }

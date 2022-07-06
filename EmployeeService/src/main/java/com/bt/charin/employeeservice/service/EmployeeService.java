@@ -5,9 +5,9 @@ import com.bt.charin.employeeservice.model.EmployeeModel;
 public interface EmployeeService{
 	EmployeeModel addEmployee(EmployeeModel employeeModel);
 	
-	EmployeeModel updateDept(EmployeeModel employeeModel);
+	String updateDept(EmployeeModel employeeModel);
 	
-	EmployeeModel getEmployee(String department);
+	EmployeeModel getEmployeeDetails(int empID);
 	
 	String deleteEmployee(EmployeeModel employeeModel);
 }
