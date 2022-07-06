@@ -1,13 +1,15 @@
 package com.bt.charin.employeeservice.service;
 
-import com.bt.charin.employeeservice.model.EmployeeModel;
+import java.util.List;
+
+import com.bt.charin.employeeservice.model.Employee;
 
 public interface EmployeeService{
-	EmployeeModel addEmployee(EmployeeModel employeeModel);
+	Employee addEmployee(Employee employeeModel);
 	
-	String updateDept(EmployeeModel employeeModel);
+	String updateDept(Employee employeeModel);
 	
-	EmployeeModel getEmployeeDetails(int empID);
+	List<Object> getEmployeeDetails(int empID);
 	
-	String deleteEmployee(EmployeeModel employeeModel);
+	String deleteEmployee(Employee employeeModel);
 }

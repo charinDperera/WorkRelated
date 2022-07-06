@@ -1,8 +1,7 @@
 package com.bt.charin.employeeservice.service;
 
-import com.bt.charin.employeeservice.model.DepartmentModel;
+import com.bt.charin.employeeservice.model.Department;
 
 public interface DepartmentService {
-	
-	DepartmentModel findByDeptName(String deptName);
+	Department findByID(int deptID);
 }
