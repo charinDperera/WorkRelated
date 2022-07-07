@@ -20,13 +20,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 	@Autowired
 	DepartmentService department;
 
-	public Employee addEmployee(Employee employee) {
-		return dao.save(employee);
+	public String addEmployee(Employee employee) {
+		dao.save(employee);
+		return "New Employee Added";
 	}
 
 	@Override
-	public String updateDept(Employee employee) {
-		dao.save(employee);
+	public String updateDept(int empID, Department department) {
+		Optional<Employee> employee = dao.findById(empID);
+		if (employee.isPresent()) {
+			Employee emp = employee.get();
+			emp.setDeptID(department.getDeptID());
+			dao.save(emp);
+		}
 		return "Updated Employee Department";
 	}
 

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bt.charin.employeeservice.model.Department;
 import com.bt.charin.employeeservice.model.Employee;
 import com.bt.charin.employeeservice.service.EmployeeService;
 
@@ -21,15 +22,12 @@ public class EmployeeController {
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addEmployee(@RequestBody Employee employee) {
-		employeeService.addEmployee(employee);
-		return "New employee added";
+		return employeeService.addEmployee(employee);
 	}
 	
-	@RequestMapping(value = "/updateDepartment", method = RequestMethod.POST)
-	public String updateEmployeeDepartment() {
-		
-		
-		return "Employee Department updated";
+	@RequestMapping(value = "/updateDepartment/{empID}", method = RequestMethod.POST)
+	public String updateEmployeeDepartment(@PathVariable int empID, @RequestBody Department department) {
+		return employeeService.updateDept(empID, department);
 	}
 	
 	@RequestMapping(value = "/getEmployeeDetails/{empID}", method = RequestMethod.GET)
@@ -39,7 +37,6 @@ public class EmployeeController {
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public String deleteEmployee(@RequestBody Employee employee) {
-		
 		return employeeService.deleteEmployee(employee);
 	}
 }
